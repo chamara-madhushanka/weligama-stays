@@ -32,7 +32,8 @@
       <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600">
         <a href="#routes" class="hover:text-teal-600">Popular Routes</a>
         <a href="#calculator" class="hover:text-teal-600">Custom Quote</a>
-        <a href="#pricing" class="hover:text-teal-600">Rates</a>
+        <a href="#fleet" class="hover:text-teal-600">Our Fleet</a>
+        <a href="#stops" class="hover:text-teal-600">En-route Stops</a>
         <a href="#faq" class="hover:text-teal-600">FAQ</a>
       </div>
       <a href="https://wa.me/94773162353?text=Hi!%20I%20need%20a%20custom%20taxi%20quote" target="_blank" 
@@ -51,12 +52,12 @@
       <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Hassle-Free Private Rides Across Sri Lanka</h2>
       <p class="text-teal-100 text-lg md:text-xl mb-8">Fixed Rates • Highway Tolls Included • English Speaking Drivers • Flight Tracking</p>
       
-      <!-- Trust Badges -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/10 text-xs font-medium">
-        <div><i class="fa-solid fa-road text-amber-400 mb-1 text-base"></i><br>Highway Fees Free</div>
-        <div><i class="fa-solid fa-clock text-amber-400 mb-1 text-base"></i><br>Free Delay Waiting</div>
-        <div><i class="fa-solid fa-bottle-water text-amber-400 mb-1 text-base"></i><br>Free Cold Water</div>
-        <div><i class="fa-solid fa-shield-halved text-amber-400 mb-1 text-base"></i><br>Verified Drivers</div>
+      <!-- Enhanced Trust Badges -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/10 text-xs font-medium">
+        <div><i class="fa-solid fa-road text-amber-400 mb-1 text-base"></i><br>Highway Tolls Free</div>
+        <div><i class="fa-solid fa-clock text-amber-400 mb-1 text-base"></i><br>Free Flight Delay Waiting</div>
+        <div><i class="fa-solid fa-baby text-amber-400 mb-1 text-base"></i><br>Free Baby Seat on Request</div>
+        <div><i class="fa-solid fa-bottle-water text-amber-400 mb-1 text-base"></i><br>Free Cold Bottled Water</div>
       </div>
     </div>
   </section>
@@ -123,98 +124,104 @@
     <div id="routes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
   </section>
 
-  <!-- Rates Matrix Table -->
-  <section id="pricing" class="bg-white py-16 px-4 border-t border-gray-100">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-10">
-        <h3 class="text-3xl font-bold text-gray-900">Standard Airport Route Rates</h3>
-        <p class="text-gray-600 mt-2">Transparent fixed pricing for major destinations from BIA Airport</p>
+  <!-- Vehicle Fleet Options with Specs (Tuktukdude Style) -->
+  <section id="fleet" class="bg-white py-16 px-4 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold text-gray-900">Choose Your Ride</h3>
+        <p class="text-gray-600 mt-2">Clean, modern, fully air-conditioned vehicles for maximum comfort</p>
       </div>
 
-      <div class="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-        <table class="w-full text-sm text-left text-gray-600">
-          <thead class="text-xs uppercase bg-teal-900 text-white">
-            <tr>
-              <th class="py-4 px-6">Destination</th>
-              <th class="py-4 px-6">Est. Time</th>
-              <th class="py-4 px-6">Sedan (1-3 Pax)</th>
-              <th class="py-4 px-6">Van (1-5 Pax)</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200 bg-white">
-            <tr>
-              <td class="py-4 px-6 font-bold text-gray-900">Negombo</td>
-              <td class="py-4 px-6">25 Mins</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$20</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$25</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-bold text-gray-900">Colombo City</td>
-              <td class="py-4 px-6">45 Mins</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$30</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$40</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-bold text-gray-900">Galle / Unawatuna</td>
-              <td class="py-4 px-6">2 Hours</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$55</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$70</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-bold text-gray-900">Weligama / Mirissa</td>
-              <td class="py-4 px-6">2.5 Hours</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$60</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$75</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-bold text-gray-900">Kandy</td>
-              <td class="py-4 px-6">3 Hours</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$50</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$65</td>
-            </tr>
-            <tr>
-              <td class="py-4 px-6 font-bold text-gray-900">Ella</td>
-              <td class="py-4 px-6">4.5 Hours</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$85</td>
-              <td class="py-4 px-6 font-bold text-teal-700">$105</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Sedan Card -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-1 text-center">Comfort Sedan</h4>
+            <p class="text-xs text-gray-500 mb-4 text-center">Toyota Axio / Prius / Allion</p>
+            
+            <div class="space-y-3 text-xs text-gray-600 border-t border-b border-gray-200 py-4 mb-4">
+              <div class="flex items-center gap-2"><i class="fa-solid fa-users text-teal-600 w-4"></i> Up to 3 Passengers</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-suitcase text-teal-600 w-4"></i> 2 Large Suitcases + 2 Handbags</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-snowflake text-teal-600 w-4"></i> Dual Climate A/C</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-wifi text-teal-600 w-4"></i> On-board Mobile Charger</div>
+            </div>
+          </div>
+          <a href="https://wa.me/94773162353?text=Hi!%20I'm%20interested%20in%20booking%20a%20Sedan" target="_blank" class="block text-center bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Sedan</a>
+        </div>
+
+        <!-- Mini Van Card -->
+        <div class="bg-slate-50 p-6 rounded-2xl border-2 border-teal-600 relative flex flex-col justify-between shadow-md">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Most Popular</span>
+          <div>
+            <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+              <i class="fa-solid fa-van-shuttle"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-1 text-center">Spacious Mini Van</h4>
+            <p class="text-xs text-gray-500 mb-4 text-center">Toyota KDH / Honda Freed</p>
+            
+            <div class="space-y-3 text-xs text-gray-600 border-t border-b border-gray-200 py-4 mb-4">
+              <div class="flex items-center gap-2"><i class="fa-solid fa-users text-teal-600 w-4"></i> Up to 5 Passengers</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-suitcase text-teal-600 w-4"></i> 4 Large Bags + Surfboards</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-water text-teal-600 w-4"></i> Surfboard Roof Rack Friendly</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-baby text-teal-600 w-4"></i> Free Child Safety Seat</div>
+            </div>
+          </div>
+          <a href="https://wa.me/94773162353?text=Hi!%20I'm%20interested%20in%20booking%20a%20Mini%20Van" target="_blank" class="block text-center bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Mini Van</a>
+        </div>
+
+        <!-- Large Van Card -->
+        <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 flex flex-col justify-between">
+          <div>
+            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+              <i class="fa-solid fa-bus"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-1 text-center">Group Passenger Van</h4>
+            <p class="text-xs text-gray-500 mb-4 text-center">Toyota High-Roof KDH</p>
+            
+            <div class="space-y-3 text-xs text-gray-600 border-t border-b border-gray-200 py-4 mb-4">
+              <div class="flex items-center gap-2"><i class="fa-solid fa-users text-teal-600 w-4"></i> Up to 9 Passengers</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-suitcase text-teal-600 w-4"></i> 8+ Heavy Luggage Bags</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-couch text-teal-600 w-4"></i> Reclining High-Roof Seats</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-teal-600 w-4"></i> Full Passenger Insurance</div>
+            </div>
+          </div>
+          <a href="https://wa.me/94773162353?text=Hi!%20I'm%20interested%20in%20booking%20a%20Large%20Van" target="_blank" class="block text-center bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Large Van</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Customer Reviews / Social Proof -->
-  <section class="bg-slate-100 py-16 px-4">
+  <!-- En-route Tour Stops (Add-on Value) -->
+  <section id="stops" class="bg-slate-100 py-16 px-4">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold text-gray-900">Traveler Experiences</h3>
-        <p class="text-gray-600 mt-2">What tourists say about our airport transfers</p>
+        <h3 class="text-3xl font-bold text-gray-900">Optional En-Route Stops</h3>
+        <p class="text-gray-600 mt-2">Turn your airport transfer into a mini-tour with no stress!</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm">
-          <div class="flex text-amber-400 mb-3 text-sm">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="text-xs text-gray-600 mb-4 leading-relaxed">"Our driver was waiting with my name sign right at arrivals after a 12-hour flight. Super clean car and smooth highway ride to Weligama!"</p>
-          <div class="font-bold text-xs text-gray-900">— Mark & Sarah (UK)</div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-wine-glass"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">King Coconut Refreshment</h4>
+          <p class="text-xs text-gray-500 mb-2">Included Free</p>
+          <p class="text-xs text-gray-600">Enjoy fresh, organic local king coconuts at a roadside spot during your ride.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm">
-          <div class="flex text-amber-400 mb-3 text-sm">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="text-xs text-gray-600 mb-4 leading-relaxed">"Our flight was delayed by 2 hours, but our van driver was still waiting with a smile. No extra fee charged! Highly recommend TripoLanka."</p>
-          <div class="font-bold text-xs text-gray-900">— Elena R. (Germany)</div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+          <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-monument"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">Galle Fort Express Visit</h4>
+          <p class="text-xs text-gray-500 mb-2">Optional Stop</p>
+          <p class="text-xs text-gray-600">Stop for a quick 45-minute walk around the historic UNESCO Galle Fort on your way to Weligama.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-sm">
-          <div class="flex text-amber-400 mb-3 text-sm">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="text-xs text-gray-600 mb-4 leading-relaxed">"Booked a van for 4 of us with surfboards to Mirissa. Great driver, stopped for fresh coconut water on the way. 10/10 service!"</p>
-          <div class="font-bold text-xs text-gray-900">— Liam & Friends (Australia)</div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-paw"></i></div>
+          <h4 class="font-bold text-gray-900 mb-1">Turtle Hatchery Visit</h4>
+          <p class="text-xs text-gray-500 mb-2">Optional Stop</p>
+          <p class="text-xs text-gray-600">Visit a sea turtle sanctuary along the coastal highway before reaching your villa.</p>
         </div>
       </div>
     </div>
