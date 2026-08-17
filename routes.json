@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "destination": "Weligama / Mirissa",
+    "distance": "175 km (via Highway)",
+    "duration": "2.5 Hours",
+    "sedanPrice": "$60",
+    "vanPrice": "$75",
+    "image": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80",
+    "popular": true
+  },
+  {
+    "id": 2,
+    "destination": "Galle / Unawatuna",
+    "distance": "150 km (via Highway)",
+    "duration": "2 Hours",
+    "sedanPrice": "$55",
+    "vanPrice": "$70",
+    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+    "popular": false
+  },
+  {
+    "id": 3,
+    "destination": "Ella / Bandarawela",
+    "distance": "210 km",
+    "duration": "4.5 Hours",
+    "sedanPrice": "$85",
+    "vanPrice": "$105",
+    "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+    "popular": true
+  },
+  {
+    "id": 4,
+    "destination": "Kandy / Sigiriya",
+    "distance": "115 km",
+    "duration": "3 Hours",
+    "sedanPrice": "$50",
+    "vanPrice": "$65",
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+    "popular": false
+  }
+]

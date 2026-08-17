@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "type": "pickup",
+    "title": "BIA Airport to Weligama / Mirissa",
+    "vehicle": "A/C Mini Van / Sedan",
+    "price": "$65",
+    "badge": "Popular",
+    "image": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80",
+    "features": ["24/7 Service", "Highway Tolls Included", "English Speaking Driver"]
+  },
+  {
+    "id": 2,
+    "type": "pickup",
+    "title": "BIA Airport to Kandy / Ella",
+    "vehicle": "Luxury SUV / Van",
+    "price": "$85",
+    "badge": "Long Distance",
+    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+    "features": ["Comfortable Seating", "Luggage Space", "Free Bottled Water"]
+  },
+  {
+    "id": 3,
+    "type": "vehicle",
+    "title": "Scooter & Bike Rental",
+    "vehicle": "Honda Dio / Scooter",
+    "price": "$8 / day",
+    "badge": "Best for Local Rides",
+    "image": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80",
+    "features": ["Helmets Included", "Free Delivery to Villa", "Unlimited Mileage"]
+  },
+  {
+    "id": 4,
+    "type": "tour",
+    "title": "Udawalawe Safari & Secret Waterfalls",
+    "vehicle": "Private 4x4 Safari Jeep",
+    "price": "$120 / day",
+    "badge": "Day Tour",
+    "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
+    "features": ["Hotel Pickup", "National Park Tickets", "Local Guide"]
+  }
+]
