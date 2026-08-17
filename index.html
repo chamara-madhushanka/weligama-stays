@@ -11,8 +11,8 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Header / Navigation -->
-  <nav class="bg-white shadow-sm sticky top-0 z-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-teal-600 tracking-wide">WELIGAMA STAYS</h1>
       <a href="#villas" class="bg-teal-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-teal-700 transition">
@@ -41,9 +41,31 @@
 
     <!-- Dynamic Villa Cards Grid -->
     <div id="villa-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- JavaScript වලින් Villas ටික මෙතනට Load වෙනවා -->
+      <!-- JavaScript Load Villas -->
     </div>
   </section>
+
+  <!-- Image Gallery Modal (Pop-up Window) -->
+  <div id="gallery-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-3xl w-full p-6 relative overflow-hidden shadow-2xl">
+      <!-- Close Button -->
+      <button onclick="closeGallery()" class="absolute top-4 right-4 bg-gray-100 text-gray-700 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+        ✕
+      </button>
+      
+      <h4 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4">Villa Photos</h4>
+      
+      <!-- Main Modal Image -->
+      <div class="relative h-80 md:h-96 w-full mb-4 rounded-xl overflow-hidden bg-gray-100">
+        <img id="modal-main-img" src="" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Thumbnail Strip -->
+      <div id="modal-thumbnails" class="flex gap-3 overflow-x-auto py-2">
+        <!-- Thumbnails JS වලින් එනවා -->
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
@@ -52,23 +74,50 @@
 
   <!-- Main JavaScript Logic -->
   <script>
-    // ⚠️ මෙතනට උඹේ WhatsApp Number එක දාපන් (Country code එක්ක, 947XXXXXXXX)
-    const MY_WHATSAPP_NUMBER = "94773162353"; 
+    const MY_WHATSAPP_NUMBER = "94770000000"; // ⚠️ උඹේ real WhatsApp number එක දාන්න
+    let currentVillas = [];
 
-    // Load Villas Data
-    fetch('villas.json')
+    // Fetch and render villas
+    fetch('./villas.json')
       .then(res => res.json())
       .then(data => {
-        const container = document.getElementById('villa-container');
-        container.innerHTML = data.map(villa => `
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-            <img src="${villa.image}" alt="${villa.name}" class="w-full h-56 object-cover">
+        currentVillas = data;
+        renderVillas(data);
+      })
+      .catch(err => console.error("Error loading villas:", err));
+
+    function renderVillas(villas) {
+      const container = document.getElementById('villa-container');
+      container.innerHTML = villas.map(villa => `
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col justify-between">
+          <div>
+            <!-- Image with Gallery Trigger -->
+            <div class="relative cursor-pointer group" onclick="openGallery(${villa.id})">
+              <img src="${villa.image}" alt="${villa.name}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-300">
+              <span class="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                <i class="fa-solid fa-camera mr-1"></i> ${villa.gallery ? villa.gallery.length : 1} Photos
+              </span>
+            </div>
+
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
                 <h4 class="text-xl font-bold text-gray-900">${villa.name}</h4>
                 <span class="bg-teal-50 text-teal-700 font-bold px-3 py-1 rounded-full text-xs">${villa.price} / night</span>
               </div>
-              <p class="text-gray-500 text-sm mb-4"><i class="fa-solid font-bold fa-location-dot text-teal-600 mr-1"></i>${villa.location}</p>
+              
+              <!-- Location + Google Maps Button -->
+              <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                <span><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>${villa.location}</span>
+                <a href="${villa.mapUrl}" target="_blank" class="text-xs text-teal-600 hover:underline font-semibold flex items-center gap-1">
+                  <i class="fa-solid fa-map-location-dot"></i> Map
+                </a>
+              </div>
+
+              <!-- Rating & Reviews -->
+              <div class="flex items-center gap-2 mb-4 text-sm">
+                <span class="text-amber-500"><i class="fa-solid fa-star"></i> ${villa.rating}</span>
+                <span class="text-gray-400 text-xs">(${villa.reviewsCount} reviews)</span>
+              </div>
               
               <!-- Features -->
               <div class="flex gap-4 text-xs text-gray-600 border-t border-b border-gray-100 py-3 mb-6">
@@ -76,17 +125,46 @@
                 <span><i class="fa-solid fa-bath text-teal-600 mr-1"></i>${villa.baths} Baths</span>
                 <span><i class="fa-solid fa-wifi text-teal-600 mr-1"></i>Free WiFi</span>
               </div>
-
-              <!-- WhatsApp Direct Booking Button -->
-              <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'm%20interested%20in%20booking%20${encodeURIComponent(villa.name)}" 
-                 target="_blank" 
-                 class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i> Book via WhatsApp
-              </a>
             </div>
           </div>
-        `).join('');
-      });
+
+          <div class="px-6 pb-6">
+            <!-- WhatsApp Booking Button -->
+            <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'm%20interested%20in%20booking%20${encodeURIComponent(villa.name)}" 
+               target="_blank" 
+               class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Book via WhatsApp
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Modal Gallery Functions
+    function openGallery(villaId) {
+      const villa = currentVillas.find(v => v.id === villaId);
+      if (!villa || !villa.gallery) return;
+
+      document.getElementById('modal-title').innerText = villa.name;
+      document.getElementById('modal-main-img').src = villa.gallery[0];
+
+      const thumbContainer = document.getElementById('modal-thumbnails');
+      thumbContainer.innerHTML = villa.gallery.map((imgUrl, index) => `
+        <img src="${imgUrl}" 
+             onclick="setModalImage('${imgUrl}')" 
+             class="h-16 w-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition border-2 border-transparent hover:border-teal-600">
+      `).join('');
+
+      document.getElementById('gallery-modal').classList.remove('hidden');
+    }
+
+    function setModalImage(url) {
+      document.getElementById('modal-main-img').src = url;
+    }
+
+    function closeGallery() {
+      document.getElementById('gallery-modal').classList.add('hidden');
+    }
   </script>
 </body>
 </html>
