@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripoLanka | Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-slate-100 font-sans min-h-screen text-gray-800">
+
+  <!-- LOGIN SCREEN -->
+  <div id="login-screen" class="fixed inset-0 bg-slate-900 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center space-y-4">
+      <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto text-2xl font-black">
+        <i class="fa-solid fa-user-shield"></i>
+      </div>
+      <h2 class="text-2xl font-black text-gray-900">Admin Login</h2>
+      <p class="text-xs text-gray-500">Enter Admin Passcode to Access Dashboard</p>
+
+      <form onsubmit="handleLogin(event)" class="space-y-4 pt-2">
+        <input type="password" id="admin-passcode" placeholder="Enter Passcode (Default: 1234)" required 
+               class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-center text-sm font-bold focus:outline-none focus:border-teal-600 tracking-widest">
+        <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-extrabold py-3 rounded-xl transition text-sm">
+          Unlock Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD MAIN UI -->
+  <div id="dashboard-ui" class="hidden">
+    <!-- Top Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <span class="bg-teal-600 text-white text-xs font-black p-2 rounded-xl"><i class="fa-solid fa-gauge-high"></i></span>
+          <h1 class="text-xl font-black text-gray-900">TripoLanka Admin</h1>
+        </div>
+        <button onclick="logout()" class="text-xs font-bold text-red-500 hover:text-red-700 bg-red-50 px-4 py-2 rounded-xl border border-red-100 transition">
+          <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-list-check"></i></div>
+          <div>
+            <p class="text-xs text-gray-500 font-bold uppercase">Total Bookings</p>
+            <h3 id="stat-total" class="text-2xl font-black text-gray-900">0</h3>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-taxi"></i></div>
+          <div>
+            <p class="text-xs text-gray-500 font-bold uppercase">Taxi Transfers</p>
+            <h3 id="stat-taxis" class="text-2xl font-black text-gray-900">0</h3>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex items-center gap-4">
+          <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-house"></i></div>
+          <div>
+            <p class="text-xs text-gray-500 font-bold uppercase">Villa Stays</p>
+            <h3 id="stat-villas" class="text-2xl font-black text-gray-900">0</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls & Table -->
+      <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="p-6 border-b border-gray-100 flex flex-wrap justify-between items-center gap-4">
+          <h2 class="text-lg font-bold text-gray-900">Recent Guest Bookings</h2>
+          <button onclick="loadBookings()" class="bg-slate-100 hover:bg-slate-200 text-gray-700 text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-2">
+            <i class="fa-solid fa-rotate"></i> Refresh Data
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-gray-600">
+            <thead class="bg-slate-50 border-b border-gray-100 text-gray-400 font-bold uppercase tracking-wider">
+              <tr>
+                <th class="p-4">Guest Name</th>
+                <th class="p-4">Type</th>
+                <th class="p-4">Destination / Villa</th>
+                <th class="p-4">Dates / Time</th>
+                <th class="p-4">Vehicle / Details</th>
+                <th class="p-4">Status</th>
+                <th class="p-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-table-body" class="divide-y divide-gray-100">
+              <tr>
+                <td colspan="7" class="p-8 text-center text-gray-400 font-semibold">Loading bookings from Supabase...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Supabase Connection Credentials
+    const SUPABASE_URL = "https://hijosbitgltopoqbbphk.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_pW3hu-hHVXkL9_uoKo5QjQ_2ROJL8It";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    // Default Passcode (ඔයාට කැමති එකකට මෙතන වෙනස් කරන්න පුළුවන්)
+    const ADMIN_PASSCODE = "1234";
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const code = document.getElementById('admin-passcode').value;
+      if (code === ADMIN_PASSCODE) {
+        document.getElementById('login-screen').classList.add('hidden');
+        document.getElementById('dashboard-ui').classList.remove('hidden');
+        loadBookings();
+      } else {
+        alert("Incorrect Passcode!");
+      }
+    }
+
+    function logout() {
+      document.getElementById('dashboard-ui').classList.add('hidden');
+      document.getElementById('login-screen').classList.remove('hidden');
+      document.getElementById('admin-passcode').value = "";
+    }
+
+    async function loadBookings() {
+      const tbody = document.getElementById('bookings-table-body');
+      tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-gray-400">Loading live data...</td></tr>`;
+
+      const { data: bookings, error } = await supabaseClient
+        .from('bookings')
+        .select('*')
+        .order('id', { ascending: false });
+
+      if (error) {
+        tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-red-500">Error: ${error.message}</td></tr>`;
+        return;
+      }
+
+      if (!bookings || bookings.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-gray-400">No bookings found in database yet.</td></tr>`;
+        updateStats(0, 0, 0);
+        return;
+      }
+
+      // Calculate Stats
+      const total = bookings.length;
+      const taxis = bookings.filter(b => b.booking_type === 'taxi').length;
+      const villas = bookings.filter(b => b.booking_type === 'villa').length;
+      updateStats(total, taxis, villas);
+
+      // Render Table Rows
+      tbody.innerHTML = bookings.map(b => `
+        <tr class="hover:bg-slate-50/80 transition">
+          <td class="p-4 font-bold text-gray-900">${b.guest_name}</td>
+          <td class="p-4">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase ${b.booking_type === 'villa' ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800'}">
+              ${b.booking_type || 'Taxi'}
+            </span>
+          </td>
+          <td class="p-4 font-semibold">${b.item_name || 'N/A'}</td>
+          <td class="p-4">${b.checkin_date || 'N/A'} ${b.checkout_date ? '➔ ' + b.checkout_date : ''}</td>
+          <td class="p-4 text-gray-500">${b.vehicle_type || b.flight_number || '-'}</td>
+          <td class="p-4">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${b.status === 'confirmed' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-gray-600'}">
+              ${b.status || 'pending'}
+            </span>
+          </td>
+          <td class="p-4 text-right space-x-2">
+            <button onclick="updateStatus(${b.id}, 'confirmed')" class="text-xs bg-green-50 text-green-600 hover:bg-green-100 p-2 rounded-lg font-bold" title="Confirm Booking">✓</button>
+            <button onclick="deleteBooking(${b.id})" class="text-xs bg-red-50 text-red-600 hover:bg-red-100 p-2 rounded-lg font-bold" title="Delete Booking">✕</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function updateStats(total, taxis, villas) {
+      document.getElementById('stat-total').innerText = total;
+      document.getElementById('stat-taxis').innerText = taxis;
+      document.getElementById('stat-villas').innerText = villas;
+    }
+
+    async function updateStatus(id, newStatus) {
+      const { error } = await supabaseClient
+        .from('bookings')
+        .update({ status: newStatus })
+        .eq('id', id);
+
+      if (error) alert("Error updating status: " + error.message);
+      else loadBookings();
+    }
+
+    async function deleteBooking(id) {
+      if (confirm("Are you sure you want to delete this booking entry?")) {
+        const { error } = await supabaseClient
+          .from('bookings')
+          .delete()
+          .eq('id', id);
+
+        if (error) alert("Error deleting booking: " + error.message);
+        else loadBookings();
+      }
+    }
+  </script>
+</body>
+</html>
