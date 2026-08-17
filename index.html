@@ -32,38 +32,72 @@
     </div>
   </section>
 
-  <!-- Villa Listings Section -->
+  <!-- Villa Listings & Search/Filter Section -->
   <section id="villas" class="max-w-7xl mx-auto px-4 py-16">
-    <div class="text-center mb-12">
+    <div class="text-center mb-8">
       <h3 class="text-3xl font-bold text-gray-900">Featured Villas</h3>
       <p class="text-gray-600 mt-2">Direct booking with zero hidden fees</p>
+    </div>
+
+    <!-- Filter & Search Controls -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-gray-100">
+      <!-- Search Input -->
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400"></i>
+        <input type="text" id="search-input" oninput="applyFilters()" placeholder="Search by name or location..." 
+               class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-teal-600 text-sm">
+      </div>
+
+      <!-- Bedrooms Filter -->
+      <div class="relative">
+        <i class="fa-solid fa-bed absolute left-4 top-3.5 text-gray-400"></i>
+        <select id="bedroom-filter" onchange="applyFilters()" 
+                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-teal-600 text-sm appearance-none bg-white">
+          <option value="all">All Bedrooms</option>
+          <option value="2">2 Bedrooms</option>
+          <option value="3">3 Bedrooms</option>
+          <option value="4">4+ Bedrooms</option>
+        </select>
+      </div>
+
+      <!-- Sort by Price Filter -->
+      <div class="relative">
+        <i class="fa-solid fa-arrow-up-wide-short absolute left-4 top-3.5 text-gray-400"></i>
+        <select id="price-sort" onchange="applyFilters()" 
+                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-teal-600 text-sm appearance-none bg-white">
+          <option value="default">Sort by: Default</option>
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+        </select>
+      </div>
     </div>
 
     <!-- Dynamic Villa Cards Grid -->
     <div id="villa-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- JavaScript Load Villas -->
     </div>
+
+    <!-- No Results Message -->
+    <div id="no-results" class="hidden text-center py-12">
+      <i class="fa-solid fa-house-circle-xmark text-4xl text-gray-300 mb-3"></i>
+      <p class="text-gray-500 font-semibold">No villas found matching your search criteria.</p>
+    </div>
   </section>
 
-  <!-- Image Gallery Modal (Pop-up Window) -->
+  <!-- Image Gallery Modal -->
   <div id="gallery-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-3xl w-full p-6 relative overflow-hidden shadow-2xl">
-      <!-- Close Button -->
       <button onclick="closeGallery()" class="absolute top-4 right-4 bg-gray-100 text-gray-700 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
         ✕
       </button>
       
       <h4 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4">Villa Photos</h4>
       
-      <!-- Main Modal Image -->
       <div class="relative h-80 md:h-96 w-full mb-4 rounded-xl overflow-hidden bg-gray-100">
         <img id="modal-main-img" src="" class="w-full h-full object-cover">
       </div>
 
-      <!-- Thumbnail Strip -->
-      <div id="modal-thumbnails" class="flex gap-3 overflow-x-auto py-2">
-        <!-- Thumbnails JS වලින් එනවා -->
-      </div>
+      <div id="modal-thumbnails" class="flex gap-3 overflow-x-auto py-2"></div>
     </div>
   </div>
 
@@ -75,23 +109,60 @@
   <!-- Main JavaScript Logic -->
   <script>
     const MY_WHATSAPP_NUMBER = "94770000000"; // ⚠️ උඹේ real WhatsApp number එක දාන්න
-    let currentVillas = [];
+    let allVillas = [];
 
-    // Fetch and render villas
+    // Fetch villas
     fetch('./villas.json')
       .then(res => res.json())
       .then(data => {
-        currentVillas = data;
-        renderVillas(data);
+        allVillas = data;
+        renderVillas(allVillas);
       })
       .catch(err => console.error("Error loading villas:", err));
 
+    // Filter Logic
+    function applyFilters() {
+      const searchValue = document.getElementById('search-input').value.toLowerCase();
+      const bedroomValue = document.getElementById('bedroom-filter').value;
+      const priceSortValue = document.getElementById('price-sort').value;
+
+      let filtered = allVillas.filter(villa => {
+        const matchesSearch = villa.name.toLowerCase().includes(searchValue) || 
+                              villa.location.toLowerCase().includes(searchValue);
+        
+        let matchesBedrooms = true;
+        if (bedroomValue === "2") matchesBedrooms = villa.bedrooms === 2;
+        else if (bedroomValue === "3") matchesBedrooms = villa.bedrooms === 3;
+        else if (bedroomValue === "4") matchesBedrooms = villa.bedrooms >= 4;
+
+        return matchesSearch && matchesBedrooms;
+      });
+
+      // Price Sorting
+      if (priceSortValue === 'low-high') {
+        filtered.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
+      } else if (priceSortValue === 'high-low') {
+        filtered.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
+      }
+
+      renderVillas(filtered);
+    }
+
+    // Render Cards
     function renderVillas(villas) {
       const container = document.getElementById('villa-container');
+      const noResults = document.getElementById('no-results');
+
+      if (villas.length === 0) {
+        container.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
       container.innerHTML = villas.map(villa => `
         <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col justify-between">
           <div>
-            <!-- Image with Gallery Trigger -->
             <div class="relative cursor-pointer group" onclick="openGallery(${villa.id})">
               <img src="${villa.image}" alt="${villa.name}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-300">
               <span class="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
@@ -105,7 +176,6 @@
                 <span class="bg-teal-50 text-teal-700 font-bold px-3 py-1 rounded-full text-xs">${villa.price} / night</span>
               </div>
               
-              <!-- Location + Google Maps Button -->
               <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
                 <span><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>${villa.location}</span>
                 <a href="${villa.mapUrl}" target="_blank" class="text-xs text-teal-600 hover:underline font-semibold flex items-center gap-1">
@@ -113,13 +183,11 @@
                 </a>
               </div>
 
-              <!-- Rating & Reviews -->
               <div class="flex items-center gap-2 mb-4 text-sm">
                 <span class="text-amber-500"><i class="fa-solid fa-star"></i> ${villa.rating}</span>
                 <span class="text-gray-400 text-xs">(${villa.reviewsCount} reviews)</span>
               </div>
               
-              <!-- Features -->
               <div class="flex gap-4 text-xs text-gray-600 border-t border-b border-gray-100 py-3 mb-6">
                 <span><i class="fa-solid fa-bed text-teal-600 mr-1"></i>${villa.bedrooms} Beds</span>
                 <span><i class="fa-solid fa-bath text-teal-600 mr-1"></i>${villa.baths} Baths</span>
@@ -129,7 +197,6 @@
           </div>
 
           <div class="px-6 pb-6">
-            <!-- WhatsApp Booking Button -->
             <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'm%20interested%20in%20booking%20${encodeURIComponent(villa.name)}" 
                target="_blank" 
                class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
@@ -142,14 +209,14 @@
 
     // Modal Gallery Functions
     function openGallery(villaId) {
-      const villa = currentVillas.find(v => v.id === villaId);
+      const villa = allVillas.find(v => v.id === villaId);
       if (!villa || !villa.gallery) return;
 
       document.getElementById('modal-title').innerText = villa.name;
       document.getElementById('modal-main-img').src = villa.gallery[0];
 
       const thumbContainer = document.getElementById('modal-thumbnails');
-      thumbContainer.innerHTML = villa.gallery.map((imgUrl, index) => `
+      thumbContainer.innerHTML = villa.gallery.map(imgUrl => `
         <img src="${imgUrl}" 
              onclick="setModalImage('${imgUrl}')" 
              class="h-16 w-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition border-2 border-transparent hover:border-teal-600">
