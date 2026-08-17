@@ -3,22 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weligama Luxury Villa Rentals</title>
-  <!-- Open Graph / WhatsApp / Facebook Preview Tags -->
+  <title>TripoLanka | All-in-One Sri Lanka Travel Hub</title>
+  
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Weligama Luxury & Budget Villa Rentals">
-  <meta property="og:description" content="Find and book handpicked villas near Weligama Beach & Highway Exit with zero hidden fees.">
+  <meta property="og:title" content="TripoLanka - Premium Villas & Travel Services in Sri Lanka">
+  <meta property="og:description" content="Direct booking for handpicked villas, airport pickups, and tours across Sri Lanka with zero extra fees.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=630">
-  <meta property="og:url" content="https://weligama-stays.vercel.app">
 
-  <!-- Twitter Preview -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Weligama Luxury & Budget Villa Rentals">
-  <meta name="twitter:description" content="Find and book handpicked villas near Weligama Beach with zero hidden fees.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=630">
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -26,45 +18,71 @@
   <!-- Navigation -->
   <nav class="bg-white shadow-sm sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-teal-600 tracking-wide">WELIGAMA STAYS</h1>
+      <div>
+        <h1 class="text-2xl font-black text-teal-600 tracking-wider">TRIPOLANKA</h1>
+        <p class="text-[10px] text-gray-400 font-medium tracking-widest uppercase">Your Sri Lanka Travel Hub</p>
+      </div>
+      <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600">
+        <a href="#villas" class="text-teal-600 hover:text-teal-700">Villas & Stays</a>
+        <a href="#transfers" class="hover:text-teal-600">Airport Pickups</a>
+        <a href="#tours" class="hover:text-teal-600">Scooters & Tours</a>
+      </div>
       <a href="#villas" class="bg-teal-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-teal-700 transition">
-        Explore Villas
+        Book Direct
       </a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative bg-teal-900 text-white py-20 px-4 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Find Your Perfect Escape in Weligama</h2>
-      <p class="text-teal-100 text-lg mb-8">Handpicked luxury & budget villas near Weligama Beach & Highway Exit.</p>
-      <a href="#villas" class="bg-amber-400 text-gray-900 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-amber-300 transition">
-        Book Your Stay
-      </a>
+  <section class="relative bg-teal-900 text-white py-24 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="bg-teal-800 text-teal-200 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block">Direct Local Bookings</span>
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">Explore & Stay Across Sri Lanka</h2>
+      <p class="text-teal-100 text-lg md:text-xl mb-8">Handpicked luxury villas, reliable airport transfers & custom island tours.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#villas" class="bg-amber-400 text-gray-900 font-bold px-8 py-3.5 rounded-full shadow-lg hover:bg-amber-300 transition">
+          Find Villas
+        </a>
+        <a href="https://wa.me/94770000000?text=Hi!%20I%20need%20an%20Airport%20Pickup%20/%20Taxi%20in%20Sri%20Lanka" target="_blank" class="bg-teal-800 text-white font-semibold px-8 py-3.5 rounded-full hover:bg-teal-700 transition border border-teal-700">
+          Book Airport Taxi
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Villa Listings & Search/Filter Section -->
+  <!-- Multi-City Filter Section -->
   <section id="villas" class="max-w-7xl mx-auto px-4 py-16">
     <div class="text-center mb-8">
-      <h3 class="text-3xl font-bold text-gray-900">Featured Villas</h3>
-      <p class="text-gray-600 mt-2">Direct booking with zero hidden fees</p>
+      <h3 class="text-3xl font-bold text-gray-900">Featured Villas & Stays</h3>
+      <p class="text-gray-600 mt-2">Verified local properties with zero booking commissions</p>
     </div>
 
-    <!-- Filter & Search Controls -->
-    <div class="bg-white p-6 rounded-2xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-3 gap-4 border border-gray-100">
-      <!-- Search Input -->
+    <!-- Filters Grid -->
+    <div class="bg-white p-6 rounded-2xl shadow-sm mb-12 grid grid-cols-1 md:grid-cols-4 gap-4 border border-gray-100">
       <div class="relative">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400"></i>
-        <input type="text" id="search-input" oninput="applyFilters()" placeholder="Search by name or location..." 
-               class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-teal-600 text-sm">
+        <input type="text" id="search-input" oninput="applyFilters()" placeholder="Search name..." 
+               class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-teal-600">
       </div>
 
-      <!-- Bedrooms Filter -->
+      <!-- City Filter -->
+      <div class="relative">
+        <i class="fa-solid fa-city absolute left-4 top-3.5 text-gray-400"></i>
+        <select id="city-filter" onchange="applyFilters()" 
+                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-teal-600 bg-white">
+          <option value="all">All Destinations</option>
+          <option value="Weligama">Weligama</option>
+          <option value="Mirissa">Mirissa</option>
+          <option value="Ella">Ella</option>
+          <option value="Nuwara Eliya">Nuwara Eliya</option>
+          <option value="Galle">Galle</option>
+        </select>
+      </div>
+
       <div class="relative">
         <i class="fa-solid fa-bed absolute left-4 top-3.5 text-gray-400"></i>
         <select id="bedroom-filter" onchange="applyFilters()" 
-                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-teal-600 text-sm appearance-none bg-white">
+                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-teal-600 bg-white">
           <option value="all">All Bedrooms</option>
           <option value="2">2 Bedrooms</option>
           <option value="3">3 Bedrooms</option>
@@ -72,11 +90,10 @@
         </select>
       </div>
 
-      <!-- Sort by Price Filter -->
       <div class="relative">
         <i class="fa-solid fa-arrow-up-wide-short absolute left-4 top-3.5 text-gray-400"></i>
         <select id="price-sort" onchange="applyFilters()" 
-                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-teal-600 text-sm appearance-none bg-white">
+                class="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-teal-600 bg-white">
           <option value="default">Sort by: Default</option>
           <option value="low-high">Price: Low to High</option>
           <option value="high-low">Price: High to Low</option>
@@ -84,138 +101,108 @@
       </div>
     </div>
 
-    <!-- Dynamic Villa Cards Grid -->
-    <div id="villa-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- JavaScript Load Villas -->
-    </div>
-
-    <!-- No Results Message -->
+    <!-- Villa Grid -->
+    <div id="villa-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    
     <div id="no-results" class="hidden text-center py-12">
       <i class="fa-solid fa-house-circle-xmark text-4xl text-gray-300 mb-3"></i>
       <p class="text-gray-500 font-semibold">No villas found matching your search criteria.</p>
     </div>
   </section>
 
-  <!-- Image Gallery Modal -->
-  <div id="gallery-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-3xl w-full p-6 relative overflow-hidden shadow-2xl">
-      <button onclick="closeGallery()" class="absolute top-4 right-4 bg-gray-100 text-gray-700 hover:bg-gray-200 w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
-        ✕
-      </button>
-      
-      <h4 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4">Villa Photos</h4>
-      
-      <div class="relative h-80 md:h-96 w-full mb-4 rounded-xl overflow-hidden bg-gray-100">
-        <img id="modal-main-img" src="" class="w-full h-full object-cover">
-      </div>
-
-      <div id="modal-thumbnails" class="flex gap-3 overflow-x-auto py-2"></div>
-    </div>
-  </div>
-<!-- Guest Reviews Section -->
-  <section class="bg-teal-900 text-white py-16 px-4">
+  <!-- Extra Services Section (Transfers / Tours) -->
+  <section id="transfers" class="bg-gray-100 py-16 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold">What Our Guests Say</h3>
-        <p class="text-teal-200 mt-2">Real experiences from travelers staying in Weligama</p>
+        <h3 class="text-3xl font-bold text-gray-900">Island Services</h3>
+        <p class="text-gray-600 mt-2">More than just stays — get around Sri Lanka hassle-free</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Review 1 -->
-        <div class="bg-teal-800/60 p-6 rounded-2xl border border-teal-700 backdrop-blur-sm">
-          <div class="flex text-amber-400 mb-3 text-sm">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="fa-solid fa-taxi"></i>
           </div>
-          <p class="text-gray-200 text-sm mb-4">"Booked directly via WhatsApp. Super quick response and the villa near the highway exit was amazingly peaceful!"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center font-bold">JS</div>
-            <div>
-              <h5 class="text-sm font-bold">Julian Schmidt</h5>
-              <p class="text-xs text-teal-300">Germany</p>
-            </div>
-          </div>
+          <h4 class="text-xl font-bold mb-2">Airport Transfers</h4>
+          <p class="text-gray-500 text-sm mb-6">24/7 BIA Airport Pickups & Drops to South Coast / Hill Country with A/C vehicles.</p>
+          <a href="https://wa.me/94770000000?text=Hi!%20I'd%20like%20to%20quote%20an%20Airport%20Transfer" target="_blank" class="inline-block bg-teal-600 text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-teal-700 transition">Get Taxi Quote</a>
         </div>
 
-        <!-- Review 2 -->
-        <div class="bg-teal-800/60 p-6 rounded-2xl border border-teal-700 backdrop-blur-sm">
-          <div class="flex text-amber-400 mb-3 text-sm">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="fa-solid fa-motorcycle"></i>
           </div>
-          <p class="text-gray-200 text-sm mb-4">"Great location, super close to Weligama surf points. Very transparent pricing with no hidden charges."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center font-bold">EM</div>
-            <div>
-              <h5 class="text-sm font-bold">Emma Miller</h5>
-              <p class="text-xs text-teal-300">Australia</p>
-            </div>
-          </div>
+          <h4 class="text-xl font-bold mb-2">Scooter Rentals</h4>
+          <p class="text-gray-500 text-sm mb-6">Clean, serviced scooters delivered straight to your villa with helmets provided.</p>
+          <a href="https://wa.me/94770000000?text=Hi!%20I'm%20interested%20in%20Scooter%20Rental" target="_blank" class="inline-block bg-amber-500 text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-amber-600 transition">Inquire Scooter</a>
         </div>
 
-        <!-- Review 3 -->
-        <div class="bg-teal-800/60 p-6 rounded-2xl border border-teal-700 backdrop-blur-sm">
-          <div class="flex text-amber-400 mb-3 text-sm">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <div class="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i class="fa-solid fa-water"></i>
           </div>
-          <p class="text-gray-200 text-sm mb-4">"Clean pool, awesome hospitality, and easy map directions provided. Highly recommended for family stays!"</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center font-bold">DL</div>
-            <div>
-              <h5 class="text-sm font-bold">David & Lisa</h5>
-              <p class="text-xs text-teal-300">UK</p>
-            </div>
-          </div>
+          <h4 class="text-xl font-bold mb-2">Surf & Day Tours</h4>
+          <p class="text-gray-500 text-sm mb-6">Private surf lessons, Safari trips, and day tours organized by certified local guides.</p>
+          <a href="https://wa.me/94770000000?text=Hi!%20I'm%20interested%20in%20Day%20Tours%20/%20Surf" target="_blank" class="inline-block bg-blue-600 text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-blue-700 transition">Book Activity</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- Footer -->
+
+  <!-- Modal Gallery -->
+  <div id="gallery-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-3xl w-full p-6 relative shadow-2xl">
+      <button onclick="closeGallery()" class="absolute top-4 right-4 bg-gray-100 text-gray-700 hover:bg-gray-200 w-10 h-10 rounded-full font-bold">✕</button>
+      <h4 id="modal-title" class="text-2xl font-bold mb-4">Villa Photos</h4>
+      <div class="h-80 md:h-96 w-full mb-4 rounded-xl overflow-hidden bg-gray-100">
+        <img id="modal-main-img" src="" class="w-full h-full object-cover">
+      </div>
+      <div id="modal-thumbnails" class="flex gap-3 overflow-x-auto py-2"></div>
+    </div>
+  </div>
+
   <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
-    <p>© 2026 Weligama Stays. Managed locally with ❤️</p>
+    <p>© 2026 TripoLanka. Empowering local tourism direct to travelers ❤️</p>
   </footer>
 
-  <!-- Main JavaScript Logic -->
   <script>
-    const MY_WHATSAPP_NUMBER = "94770000000"; // ⚠️ උඹේ real WhatsApp number එක දාන්න
+    const MY_WHATSAPP_NUMBER = "94770000000";
     let allVillas = [];
 
-    // Fetch villas
     fetch('./villas.json')
       .then(res => res.json())
       .then(data => {
         allVillas = data;
         renderVillas(allVillas);
-      })
-      .catch(err => console.error("Error loading villas:", err));
-
-    // Filter Logic
-    function applyFilters() {
-      const searchValue = document.getElementById('search-input').value.toLowerCase();
-      const bedroomValue = document.getElementById('bedroom-filter').value;
-      const priceSortValue = document.getElementById('price-sort').value;
-
-      let filtered = allVillas.filter(villa => {
-        const matchesSearch = villa.name.toLowerCase().includes(searchValue) || 
-                              villa.location.toLowerCase().includes(searchValue);
-        
-        let matchesBedrooms = true;
-        if (bedroomValue === "2") matchesBedrooms = villa.bedrooms === 2;
-        else if (bedroomValue === "3") matchesBedrooms = villa.bedrooms === 3;
-        else if (bedroomValue === "4") matchesBedrooms = villa.bedrooms >= 4;
-
-        return matchesSearch && matchesBedrooms;
       });
 
-      // Price Sorting
-      if (priceSortValue === 'low-high') {
+    function applyFilters() {
+      const searchVal = document.getElementById('search-input').value.toLowerCase();
+      const cityVal = document.getElementById('city-filter').value;
+      const bedVal = document.getElementById('bedroom-filter').value;
+      const sortVal = document.getElementById('price-sort').value;
+
+      let filtered = allVillas.filter(v => {
+        const matchesSearch = v.name.toLowerCase().includes(searchVal) || v.location.toLowerCase().includes(searchVal);
+        const matchesCity = cityVal === "all" || v.city === cityVal;
+        
+        let matchesBed = true;
+        if (bedVal === "2") matchesBed = v.bedrooms === 2;
+        else if (bedVal === "3") matchesBed = v.bedrooms === 3;
+        else if (bedVal === "4") matchesBed = v.bedrooms >= 4;
+
+        return matchesSearch && matchesCity && matchesBed;
+      });
+
+      if (sortVal === 'low-high') {
         filtered.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
-      } else if (priceSortValue === 'high-low') {
+      } else if (sortVal === 'high-low') {
         filtered.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
       }
 
       renderVillas(filtered);
     }
 
-    // Render Cards
     function renderVillas(villas) {
       const container = document.getElementById('villa-container');
       const noResults = document.getElementById('no-results');
@@ -227,44 +214,42 @@
       }
 
       noResults.classList.add('hidden');
-      container.innerHTML = villas.map(villa => `
+      container.innerHTML = villas.map(v => `
         <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 flex flex-col justify-between">
           <div>
-            <div class="relative cursor-pointer group" onclick="openGallery(${villa.id})">
-              <img src="${villa.image}" alt="${villa.name}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-300">
+            <div class="relative cursor-pointer group" onclick="openGallery(${v.id})">
+              <img src="${v.image}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-300">
+              <span class="absolute top-3 left-3 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">${v.city}</span>
               <span class="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                <i class="fa-solid fa-camera mr-1"></i> ${villa.gallery ? villa.gallery.length : 1} Photos
+                <i class="fa-solid fa-camera mr-1"></i> Photos
               </span>
             </div>
 
             <div class="p-6">
               <div class="flex justify-between items-start mb-2">
-                <h4 class="text-xl font-bold text-gray-900">${villa.name}</h4>
-                <span class="bg-teal-50 text-teal-700 font-bold px-3 py-1 rounded-full text-xs">${villa.price} / night</span>
+                <h4 class="text-xl font-bold text-gray-900">${v.name}</h4>
+                <span class="bg-teal-50 text-teal-700 font-bold px-3 py-1 rounded-full text-xs">${v.price} / night</span>
               </div>
               
               <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                <span><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>${villa.location}</span>
-                <a href="${villa.mapUrl}" target="_blank" class="text-xs text-teal-600 hover:underline font-semibold flex items-center gap-1">
-                  <i class="fa-solid fa-map-location-dot"></i> Map
-                </a>
+                <span><i class="fa-solid fa-location-dot text-teal-600 mr-1"></i>${v.location}</span>
+                <a href="${v.mapUrl}" target="_blank" class="text-xs text-teal-600 font-semibold"><i class="fa-solid fa-map"></i> Map</a>
               </div>
 
               <div class="flex items-center gap-2 mb-4 text-sm">
-                <span class="text-amber-500"><i class="fa-solid fa-star"></i> ${villa.rating}</span>
-                <span class="text-gray-400 text-xs">(${villa.reviewsCount} reviews)</span>
+                <span class="text-amber-500"><i class="fa-solid fa-star"></i> ${v.rating}</span>
+                <span class="text-gray-400 text-xs">(${v.reviewsCount} reviews)</span>
               </div>
               
               <div class="flex gap-4 text-xs text-gray-600 border-t border-b border-gray-100 py-3 mb-6">
-                <span><i class="fa-solid fa-bed text-teal-600 mr-1"></i>${villa.bedrooms} Beds</span>
-                <span><i class="fa-solid fa-bath text-teal-600 mr-1"></i>${villa.baths} Baths</span>
-                <span><i class="fa-solid fa-wifi text-teal-600 mr-1"></i>Free WiFi</span>
+                <span><i class="fa-solid fa-bed text-teal-600 mr-1"></i>${v.bedrooms} Beds</span>
+                <span><i class="fa-solid fa-bath text-teal-600 mr-1"></i>${v.baths} Baths</span>
               </div>
             </div>
           </div>
 
           <div class="px-6 pb-6">
-            <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'm%20interested%20in%20booking%20${encodeURIComponent(villa.name)}" 
+            <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'm%20interested%20in%20booking%20${encodeURIComponent(v.name)}" 
                target="_blank" 
                class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
               <i class="fa-brands fa-whatsapp text-lg"></i> Book via WhatsApp
@@ -274,31 +259,20 @@
       `).join('');
     }
 
-    // Modal Gallery Functions
     function openGallery(villaId) {
       const villa = allVillas.find(v => v.id === villaId);
       if (!villa || !villa.gallery) return;
-
       document.getElementById('modal-title').innerText = villa.name;
       document.getElementById('modal-main-img').src = villa.gallery[0];
 
-      const thumbContainer = document.getElementById('modal-thumbnails');
-      thumbContainer.innerHTML = villa.gallery.map(imgUrl => `
-        <img src="${imgUrl}" 
-             onclick="setModalImage('${imgUrl}')" 
-             class="h-16 w-24 object-cover rounded-lg cursor-pointer hover:opacity-80 transition border-2 border-transparent hover:border-teal-600">
+      document.getElementById('modal-thumbnails').innerHTML = villa.gallery.map(imgUrl => `
+        <img src="${imgUrl}" onclick="setModalImage('${imgUrl}')" class="h-16 w-24 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-teal-600">
       `).join('');
-
       document.getElementById('gallery-modal').classList.remove('hidden');
     }
 
-    function setModalImage(url) {
-      document.getElementById('modal-main-img').src = url;
-    }
-
-    function closeGallery() {
-      document.getElementById('gallery-modal').classList.add('hidden');
-    }
+    function setModalImage(url) { document.getElementById('modal-main-img').src = url; }
+    function closeGallery() { document.getElementById('gallery-modal').classList.add('hidden'); }
   </script>
 </body>
 </html>
