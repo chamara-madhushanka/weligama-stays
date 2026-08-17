@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weligama Luxury Villa Rentals</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header / Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-teal-600 tracking-wide">WELIGAMA STAYS</h1>
+      <a href="#villas" class="bg-teal-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-teal-700 transition">
+        Explore Villas
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-teal-900 text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Find Your Perfect Escape in Weligama</h2>
+      <p class="text-teal-100 text-lg mb-8">Handpicked luxury & budget villas near Weligama Beach & Highway Exit.</p>
+      <a href="#villas" class="bg-amber-400 text-gray-900 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-amber-300 transition">
+        Book Your Stay
+      </a>
+    </div>
+  </section>
+
+  <!-- Villa Listings Section -->
+  <section id="villas" class="max-w-7xl mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-bold text-gray-900">Featured Villas</h3>
+      <p class="text-gray-600 mt-2">Direct booking with zero hidden fees</p>
+    </div>
+
+    <!-- Dynamic Villa Cards Grid -->
+    <div id="villa-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- JavaScript වලින් Villas ටික මෙතනට Load වෙනවා -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+    <p>© 2026 Weligama Stays. Managed locally with ❤️</p>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script>
+    // ⚠️ මෙතනට උඹේ WhatsApp Number එක දාපන් (Country code එක්ක, 947XXXXXXXX)
+    const MY_WHATSAPP_NUMBER = "94773162353"; 
+
+    // Load Villas Data
+    fetch('villas.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('villa-container');
+        container.innerHTML = data.map(villa => `
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+            <img src="${villa.image}" alt="${villa.name}" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="text-xl font-bold text-gray-900">${villa.name}</h4>
+                <span class="bg-teal-50 text-teal-700 font-bold px-3 py-1 rounded-full text-xs">${villa.price} / night</span>
+              </div>
+              <p class="text-gray-500 text-sm mb-4"><i class="fa-solid font-bold fa-location-dot text-teal-600 mr-1"></i>${villa.location}</p>
+              
+              <!-- Features -->
+              <div class="flex gap-4 text-xs text-gray-600 border-t border-b border-gray-100 py-3 mb-6">
+                <span><i class="fa-solid fa-bed text-teal-600 mr-1"></i>${villa.bedrooms} Beds</span>
+                <span><i class="fa-solid fa-bath text-teal-600 mr-1"></i>${villa.baths} Baths</span>
+                <span><i class="fa-solid fa-wifi text-teal-600 mr-1"></i>Free WiFi</span>
+              </div>
+
+              <!-- WhatsApp Direct Booking Button -->
+              <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'm%20interested%20in%20booking%20${encodeURIComponent(villa.name)}" 
+                 target="_blank" 
+                 class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Book via WhatsApp
+              </a>
+            </div>
+          </div>
+        `).join('');
+      });
+  </script>
+</body>
+</html>
