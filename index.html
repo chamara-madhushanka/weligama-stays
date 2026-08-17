@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TripoLanka | Sri Lanka Stays, Airport Transfers & Tours</title>
+  <title>TripoLanka | Sri Lanka Airport Pickups & Transfers</title>
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TripoLanka - Premium Villas, Airport Pickups & Tours in Sri Lanka">
-  <meta property="og:description" content="Direct booking for handpicked villas, 24/7 airport transfers, and island tours across Sri Lanka with zero extra fees.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=630">
+  <meta property="og:title" content="TripoLanka - Airport Transfers & Private Taxis Sri Lanka">
+  <meta property="og:description" content="Pay $10 deposit to lock your airport transfer. Pay remaining balance cash to driver on arrival.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=630">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,9 +16,9 @@
 <body class="bg-slate-50 text-gray-800 font-sans relative">
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/94773162353?text=Hi!%20I'm%20looking%20for%20Travel%20Services%20in%20Sri%20Lanka%20(Stays%20/%20Taxis%20/%20Tours)" 
+  <a href="https://wa.me/94773162353?text=Hi!%20I'd%20like%20to%20pay%20deposit%20and%20book%20a%20taxi" 
      target="_blank" 
-     class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-50 hover:bg-green-600 hover:scale-110 transition duration-300 flex items-center justify-center">
+     class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-40 hover:bg-green-600 hover:scale-110 transition duration-300 flex items-center justify-center">
     <i class="fa-brands fa-whatsapp text-3xl"></i>
   </a>
 
@@ -27,109 +27,76 @@
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <div>
         <h1 class="text-2xl font-black text-teal-600 tracking-wider">TRIPOLANKA</h1>
-        <p class="text-[10px] text-gray-400 font-medium tracking-widest uppercase">Stays • Transfers • Tours</p>
+        <p class="text-[10px] text-gray-400 font-medium tracking-widest uppercase">Pay $10 Deposit • Rest Cash on Arrival</p>
       </div>
       <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600">
-        <a href="#routes" class="hover:text-teal-600">Airport Transfers</a>
-        <a href="#calculator" class="hover:text-teal-600">Custom Quote</a>
+        <a href="#routes" class="hover:text-teal-600">Popular Routes</a>
         <a href="#fleet" class="hover:text-teal-600">Vehicles</a>
-        <a href="#stops" class="hover:text-teal-600">En-route Stops</a>
+        <a href="#how-it-works" class="hover:text-teal-600">Deposit System</a>
         <a href="#faq" class="hover:text-teal-600">FAQ</a>
       </div>
-      <a href="https://wa.me/94773162353?text=Hi!%20I%20need%20a%20custom%20travel%20quote" target="_blank" 
+      <button onclick="openBookingModal()" 
          class="bg-green-500 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-green-600 transition flex items-center gap-2">
-        <i class="fa-brands fa-whatsapp text-lg"></i> Instant Booking
-      </a>
+        <i class="fa-solid fa-lock"></i> Lock Booking ($10 Deposit)
+      </button>
     </div>
   </nav>
 
-  <!-- All-in-One Hero Section -->
-  <section class="relative bg-cover bg-center py-28 px-4 text-center text-white" style="background-image: linear-gradient(rgba(4, 47, 46, 0.82), rgba(15, 23, 42, 0.88)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1920&q=80');">
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center py-28 px-4 text-center text-white" style="background-image: linear-gradient(rgba(4, 47, 46, 0.85), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1920&q=80');">
     <div class="max-w-4xl mx-auto relative z-10">
       <span class="bg-amber-400 text-gray-900 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block shadow-lg">
-        <i class="fa-solid fa-compass mr-1"></i> All-in-One Sri Lanka Travel Hub
+        <i class="fa-solid fa-shield-halved mr-1"></i> Low-Risk Booking Guarantee
       </span>
       
       <h2 class="text-4xl md:text-6xl font-black mb-4 leading-tight drop-shadow-md tracking-tight">
-        Villas, Airport Rides & Island Tours
+        Pay $10 Deposit Now.<br>Pay Rest Cash to Driver.
       </h2>
       <p class="text-teal-100 text-lg md:text-xl mb-8 drop-shadow font-medium">
-        Handpicked Stays • 24/7 Airport Transfers • Scooter Rentals • Safari & Day Trips
+        Hassle-free BIA Colombo Airport transfers. Secure your ride with a small advance deposit & pay balance on arrival!
       </p>
       
-      <!-- Feature Badges -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto bg-black/40 p-5 rounded-2xl backdrop-blur-md border border-white/20 text-xs font-semibold shadow-2xl">
-        <div class="p-2 border-r border-white/10 md:border-r"><i class="fa-solid fa-house-chimney text-amber-400 mb-1.5 text-lg"></i><br>Luxury Villas & Stays</div>
-        <div class="p-2 border-r border-white/10 md:border-r"><i class="fa-solid fa-car text-amber-400 mb-1.5 text-lg"></i><br>24/7 Airport Taxis</div>
-        <div class="p-2 border-r border-white/10 md:border-r"><i class="fa-solid fa-motorcycle text-amber-400 mb-1.5 text-lg"></i><br>Scooter Rentals</div>
-        <div class="p-2"><i class="fa-solid fa-mountain-sun text-amber-400 mb-1.5 text-lg"></i><br>Safari & Custom Tours</div>
+      <div class="flex justify-center gap-4">
+        <button onclick="openBookingModal()" class="bg-amber-400 text-gray-900 font-extrabold px-8 py-3.5 rounded-full text-base hover:bg-amber-300 transition shadow-lg inline-flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check"></i> Reserve Ride for $10
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Instant Custom Booking Form / Calculator -->
-  <section id="calculator" class="max-w-4xl mx-auto -mt-10 px-4 relative z-30">
-    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-gray-100">
-      <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Calculate & Book Your Ride</h3>
-      <p class="text-xs text-gray-500 mb-6 text-center">Get an instant quote sent directly to WhatsApp</p>
-      
-      <form onsubmit="handleCustomQuote(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="block text-xs font-bold text-gray-600 mb-1">Pick-up Location</label>
-          <select id="calc-pickup" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-600">
-            <option value="BIA Colombo Airport">BIA Colombo Airport</option>
-            <option value="Colombo City">Colombo City</option>
-            <option value="Negombo">Negombo</option>
-            <option value="Other Location">Other Location</option>
-          </select>
-        </div>
+  <!-- How Deposit Works Section -->
+  <section id="how-it-works" class="max-w-6xl mx-auto px-4 py-12 -mt-10 relative z-30">
+    <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div class="p-4 border-b md:border-b-0 md:border-r border-gray-100">
+        <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-3 font-black text-lg">1</div>
+        <h4 class="font-bold text-gray-900 mb-1">Pay $10 Deposit</h4>
+        <p class="text-xs text-gray-500">Lock your driver and vehicle ahead of time via Card / PayPal / Link.</p>
+      </div>
 
-        <div>
-          <label class="block text-xs font-bold text-gray-600 mb-1">Drop-off Destination</label>
-          <select id="calc-drop" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-600">
-            <option value="Weligama">Weligama</option>
-            <option value="Mirissa">Mirissa</option>
-            <option value="Galle / Unawatuna">Galle / Unawatuna</option>
-            <option value="Ella">Ella</option>
-            <option value="Kandy">Kandy</option>
-            <option value="Arugam Bay">Arugam Bay</option>
-            <option value="Other Destination">Other Destination</option>
-          </select>
-        </div>
+      <div class="p-4 border-b md:border-b-0 md:border-r border-gray-100">
+        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 font-black text-lg">2</div>
+        <h4 class="font-bold text-gray-900 mb-1">Driver Meets at Airport</h4>
+        <p class="text-xs text-gray-500">Driver tracks your flight & holds a sign with your name at arrivals.</p>
+      </div>
 
-        <div>
-          <label class="block text-xs font-bold text-gray-600 mb-1">Vehicle Preference</label>
-          <select id="calc-vehicle" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-600">
-            <option value="Budget Sedan (1-3 Pax)">Budget Sedan (1-3 Pax)</option>
-            <option value="Mini Van (1-5 Pax)">Spacious Mini Van (1-5 Pax)</option>
-            <option value="Large Van (6-9 Pax)">Large Van (6-9 Pax)</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold text-gray-600 mb-1">Date & Arrival Time</label>
-          <input type="text" id="calc-date" placeholder="e.g. 24th Oct at 10:30 PM" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-600">
-        </div>
-
-        <div class="md:col-span-2 mt-2">
-          <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2">
-            <i class="fa-brands fa-whatsapp text-lg"></i> Get Instant WhatsApp Quote
-          </button>
-        </div>
-      </form>
+      <div class="p-4">
+        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3 font-black text-lg">3</div>
+        <h4 class="font-bold text-gray-900 mb-1">Pay Rest Cash on Arrival</h4>
+        <p class="text-xs text-gray-500">Pay remaining balance directly to driver upon reaching your hotel.</p>
+      </div>
     </div>
   </section>
 
   <!-- Popular Airport Routes Section -->
-  <section id="routes" class="max-w-7xl mx-auto px-4 py-16">
+  <section id="routes" class="max-w-7xl mx-auto px-4 py-12">
     <div class="text-center mb-12">
       <h3 class="text-3xl font-bold text-gray-900">Popular Airport Transfer Routes</h3>
-      <p class="text-gray-600 mt-2">All prices are fixed per vehicle, not per person. No hidden surprises!</p>
+      <p class="text-gray-600 mt-2">All rates are fixed per vehicle. Reserve today for just $10 deposit!</p>
     </div>
     <div id="routes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
   </section>
 
-  <!-- Vehicle Fleet Options -->
+  <!-- Vehicle Fleet Section -->
   <section id="fleet" class="bg-white py-16 px-4 border-t border-gray-100">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-12">
@@ -141,92 +108,50 @@
         <!-- Sedan Card -->
         <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 flex flex-col justify-between">
           <div>
-            <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-              <i class="fa-solid fa-car"></i>
-            </div>
+            <div class="w-16 h-16 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-car"></i></div>
             <h4 class="text-xl font-bold mb-1 text-center">Comfort Sedan</h4>
             <p class="text-xs text-gray-500 mb-4 text-center">Toyota Axio / Prius / Allion</p>
             
             <div class="space-y-3 text-xs text-gray-600 border-t border-b border-gray-200 py-4 mb-4">
               <div class="flex items-center gap-2"><i class="fa-solid fa-users text-teal-600 w-4"></i> Up to 3 Passengers</div>
               <div class="flex items-center gap-2"><i class="fa-solid fa-suitcase text-teal-600 w-4"></i> 2 Large Suitcases + 2 Handbags</div>
-              <div class="flex items-center gap-2"><i class="fa-solid fa-snowflake text-teal-600 w-4"></i> Dual Climate A/C</div>
-              <div class="flex items-center gap-2"><i class="fa-solid fa-wifi text-teal-600 w-4"></i> On-board Mobile Charger</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-shield-check text-teal-600 w-4"></i> $10 Deposit Required</div>
             </div>
           </div>
-          <a href="https://wa.me/94773162353?text=Hi!%20I'm%20interested%20in%20booking%20a%20Sedan" target="_blank" class="block text-center bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Sedan</a>
+          <button onclick="openBookingModal('Sedan')" class="w-full bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Sedan ($10 Deposit)</button>
         </div>
 
         <!-- Mini Van Card -->
         <div class="bg-slate-50 p-6 rounded-2xl border-2 border-teal-600 relative flex flex-col justify-between shadow-md">
           <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Most Popular</span>
           <div>
-            <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-              <i class="fa-solid fa-van-shuttle"></i>
-            </div>
+            <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-van-shuttle"></i></div>
             <h4 class="text-xl font-bold mb-1 text-center">Spacious Mini Van</h4>
             <p class="text-xs text-gray-500 mb-4 text-center">Toyota KDH / Honda Freed</p>
             
             <div class="space-y-3 text-xs text-gray-600 border-t border-b border-gray-200 py-4 mb-4">
               <div class="flex items-center gap-2"><i class="fa-solid fa-users text-teal-600 w-4"></i> Up to 5 Passengers</div>
               <div class="flex items-center gap-2"><i class="fa-solid fa-suitcase text-teal-600 w-4"></i> 4 Large Bags + Surfboards</div>
-              <div class="flex items-center gap-2"><i class="fa-solid fa-water text-teal-600 w-4"></i> Surfboard Roof Rack Friendly</div>
-              <div class="flex items-center gap-2"><i class="fa-solid fa-baby text-teal-600 w-4"></i> Free Child Safety Seat</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-shield-check text-teal-600 w-4"></i> $10 Deposit Required</div>
             </div>
           </div>
-          <a href="https://wa.me/94773162353?text=Hi!%20I'm%20interested%20in%20booking%20a%20Mini%20Van" target="_blank" class="block text-center bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Mini Van</a>
+          <button onclick="openBookingModal('Mini Van')" class="w-full bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Mini Van ($10 Deposit)</button>
         </div>
 
         <!-- Large Van Card -->
         <div class="bg-slate-50 p-6 rounded-2xl border border-gray-200 flex flex-col justify-between">
           <div>
-            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-              <i class="fa-solid fa-bus"></i>
-            </div>
+            <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"><i class="fa-solid fa-bus"></i></div>
             <h4 class="text-xl font-bold mb-1 text-center">Group Passenger Van</h4>
             <p class="text-xs text-gray-500 mb-4 text-center">Toyota High-Roof KDH</p>
             
             <div class="space-y-3 text-xs text-gray-600 border-t border-b border-gray-200 py-4 mb-4">
               <div class="flex items-center gap-2"><i class="fa-solid fa-users text-teal-600 w-4"></i> Up to 9 Passengers</div>
               <div class="flex items-center gap-2"><i class="fa-solid fa-suitcase text-teal-600 w-4"></i> 8+ Heavy Luggage Bags</div>
-              <div class="flex items-center gap-2"><i class="fa-solid fa-couch text-teal-600 w-4"></i> Reclining High-Roof Seats</div>
-              <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-teal-600 w-4"></i> Full Passenger Insurance</div>
+              <div class="flex items-center gap-2"><i class="fa-solid fa-shield-check text-teal-600 w-4"></i> $15 Deposit Required</div>
             </div>
           </div>
-          <a href="https://wa.me/94773162353?text=Hi!%20I'm%20interested%20in%20booking%20a%20Large%20Van" target="_blank" class="block text-center bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Large Van</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- En-route Tour Stops -->
-  <section id="stops" class="bg-slate-100 py-16 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h3 class="text-3xl font-bold text-gray-900">Optional En-Route Stops</h3>
-        <p class="text-gray-600 mt-2">Turn your airport transfer into a mini-tour with no stress!</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
-          <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-wine-glass"></i></div>
-          <h4 class="font-bold text-gray-900 mb-1">King Coconut Refreshment</h4>
-          <p class="text-xs text-gray-500 mb-2">Included Free</p>
-          <p class="text-xs text-gray-600">Enjoy fresh, organic local king coconuts at a roadside spot during your ride.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
-          <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-monument"></i></div>
-          <h4 class="font-bold text-gray-900 mb-1">Galle Fort Express Visit</h4>
-          <p class="text-xs text-gray-500 mb-2">Optional Stop</p>
-          <p class="text-xs text-gray-600">Stop for a quick 45-minute walk around the historic UNESCO Galle Fort on your way to Weligama.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-sm text-center">
-          <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-paw"></i></div>
-          <h4 class="font-bold text-gray-900 mb-1">Turtle Hatchery Visit</h4>
-          <p class="text-xs text-gray-500 mb-2">Optional Stop</p>
-          <p class="text-xs text-gray-600">Visit a sea turtle sanctuary along the coastal highway before reaching your villa.</p>
+          <button onclick="openBookingModal('Large Van')" class="w-full bg-teal-600 text-white font-bold py-2.5 rounded-xl text-xs hover:bg-teal-700 transition">Select Large Van ($15 Deposit)</button>
         </div>
       </div>
     </div>
@@ -240,34 +165,124 @@
 
     <div class="space-y-4">
       <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <h4 class="font-bold text-gray-900 mb-2">How do I meet my driver at the airport?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">Your driver will wait at the main exit gate inside BIA Colombo arrivals holding a sign board with your name clearly written on it.</p>
+        <h4 class="font-bold text-gray-900 mb-2">Why do you require a $10 deposit?</h4>
+        <p class="text-xs text-gray-600 leading-relaxed">The $10 deposit reserves your vehicle and guarantees your driver will be waiting at BIA arrivals even during high demand periods. The remaining amount is paid cash on arrival.</p>
       </div>
 
       <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <h4 class="font-bold text-gray-900 mb-2">What if my flight is delayed?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">We monitor flight schedules live! Even if your flight is delayed, your driver will be waiting for you with zero additional waiting fees.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <h4 class="font-bold text-gray-900 mb-2">Are expressway / highway tolls included?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">Yes, all expressway tolls, parking fees, and driver charges are included in our quoted fixed prices.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <h4 class="font-bold text-gray-900 mb-2">How and when do I pay?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">You pay cash directly to your driver after safely arriving at your destination. We accept USD, EUR, GBP, or LKR.</p>
+        <h4 class="font-bold text-gray-900 mb-2">What currencies do drivers accept for the remaining cash balance?</h4>
+        <p class="text-xs text-gray-600 leading-relaxed">Drivers accept USD ($), EUR (€), GBP (£), or Sri Lankan Rupees (LKR) cash after arriving safely at your destination.</p>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
-    <p>© 2026 TripoLanka. Empowering Sri Lankan tourism direct to travelers ❤️</p>
+  <!-- Interactive Booking Modal -->
+  <div id="booking-modal" class="fixed inset-0 bg-black/75 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 relative shadow-2xl border border-gray-100">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 w-9 h-9 bg-gray-100 rounded-full font-bold text-sm">✕</button>
+      
+      <div class="text-center mb-6">
+        <span class="bg-teal-100 text-teal-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">Lock Booking w/ $10 Deposit</span>
+        <h3 class="text-2xl font-black text-gray-900 mt-2">Reserve Your Ride</h3>
+        <p class="text-xs text-gray-500">Pay $10 advance deposit • Rest cash to driver</p>
+      </div>
+
+      <form onsubmit="submitDepositBooking(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Pick-up Location</label>
+          <input type="text" id="modal-pickup" value="BIA Colombo Airport" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-600">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-gray-700 mb-1">Drop-off Destination</label>
+          <select id="modal-drop" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-600">
+            <option value="Weligama">Weligama</option>
+            <option value="Mirissa">Mirissa</option>
+            <option value="Galle / Unawatuna">Galle / Unawatuna</option>
+            <option value="Ella">Ella</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Negombo">Negombo</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Vehicle Type</label>
+            <select id="modal-vehicle" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-600">
+              <option value="Budget Sedan (1-3 Pax)">Sedan (1-3 Pax)</option>
+              <option value="Spacious Mini Van (1-5 Pax)">Mini Van (1-5 Pax)</option>
+              <option value="Large Van (6-9 Pax)">Large Van (6-9 Pax)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Date & Landing Time</label>
+            <input type="text" id="modal-date" placeholder="e.g. 24 Oct, 10:30 PM" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-600">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Flight Number</label>
+            <input type="text" id="modal-flight" placeholder="e.g. UL 504" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-600">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-700 mb-1">Passenger Name</label>
+            <input type="text" id="modal-name" placeholder="Your Name" required class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-teal-600">
+          </div>
+        </div>
+
+        <!-- Deposit Payment Summary Box -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs space-y-2">
+          <div class="flex justify-between font-bold text-gray-800">
+            <span>Advance Deposit (Now):</span>
+            <span class="text-amber-700 text-sm">$10.00 USD</span>
+          </div>
+          <div class="flex justify-between text-gray-600 border-t border-amber-200/60 pt-2">
+            <span>Remaining Cash to Driver:</span>
+            <span class="font-bold text-gray-800">Pay on Arrival</span>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-extrabold py-3.5 rounded-xl transition flex items-center justify-center gap-2 text-sm shadow-lg">
+            <i class="fa-solid fa-credit-card"></i> Pay $10 Deposit Now
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Business Policy Modal (Required for PayHere Approval) -->
+  <div id="policy-modal" class="fixed inset-0 bg-black/75 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 md:p-8 relative shadow-2xl border border-gray-100 max-h-[80vh] overflow-y-auto">
+      <button onclick="closePolicyModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 w-9 h-9 bg-gray-100 rounded-full font-bold text-sm">✕</button>
+      
+      <h3 id="policy-title" class="text-2xl font-black text-gray-900 mb-4">Business Policy</h3>
+      <div id="policy-content" class="text-xs text-gray-600 leading-relaxed space-y-3"></div>
+    </div>
+  </div>
+
+  <!-- Footer with Policy Links -->
+  <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      <div class="flex justify-center gap-6 text-xs text-gray-400 font-semibold">
+        <a href="javascript:void(0)" onclick="showPolicy('refund')" class="hover:text-amber-400">Cancellation & Refund Policy</a>
+        <span>•</span>
+        <a href="javascript:void(0)" onclick="showPolicy('privacy')" class="hover:text-amber-400">Privacy Policy</a>
+        <span>•</span>
+        <a href="javascript:void(0)" onclick="showPolicy('terms')" class="hover:text-amber-400">Terms & Conditions</a>
+      </div>
+      <p class="text-xs text-gray-500">© 2026 TripoLanka. Empowering Sri Lankan tourism direct to travelers ❤️</p>
+    </div>
   </footer>
+
+  <!-- PayHere JavaScript SDK -->
+  <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
 
   <script>
     const MY_WHATSAPP_NUMBER = "94773162353";
 
+    // Dynamic Routes Load
     fetch('./routes.json')
       .then(res => res.json())
       .then(routes => {
@@ -300,25 +315,114 @@
             </div>
 
             <div class="px-6 pb-6">
-              <a href="https://wa.me/${MY_WHATSAPP_NUMBER}?text=Hi!%20I'd%20like%20to%20book%20a%20taxi%20from%20Airport%20to%20${encodeURIComponent(r.destination)}" 
-                 target="_blank" 
-                 class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
-                <i class="fa-brands fa-whatsapp text-lg"></i> Book Ride
-              </a>
+              <button onclick="openBookingModal('', '${r.destination}')" 
+                 class="w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-sm">
+                <i class="fa-solid fa-lock"></i> Reserve ($10 Deposit)
+              </button>
             </div>
           </div>
         `).join('');
       });
 
-    function handleCustomQuote(e) {
-      e.preventDefault();
-      const pickup = document.getElementById('calc-pickup').value;
-      const drop = document.getElementById('calc-drop').value;
-      const vehicle = document.getElementById('calc-vehicle').value;
-      const date = document.getElementById('calc-date').value;
+    function openBookingModal(vehicle = '', destination = '') {
+      if(vehicle) document.getElementById('modal-vehicle').value = vehicle;
+      if(destination) document.getElementById('modal-drop').value = destination;
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
 
-      const message = `Hi TripoLanka! I'd like a quote:%0A- Pick-up: ${pickup}%0A- Drop-off: ${drop}%0A- Vehicle: ${vehicle}%0A- Date/Time: ${date}`;
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    // PayHere Callbacks
+    payhere.onCompleted = function onCompleted(orderId) {
+      alert("Payment Successful! Your deposit is received.");
+      
+      const pickup = document.getElementById('modal-pickup').value;
+      const drop = document.getElementById('modal-drop').value;
+      const vehicle = document.getElementById('modal-vehicle').value;
+      const date = document.getElementById('modal-date').value;
+      const flight = document.getElementById('modal-flight').value;
+      const name = document.getElementById('modal-name').value;
+
+      const message = `✅ *DEPOSIT PAID & TAXI LOCKED*%0A%0A👤 Name: ${name}%0A✈️ Flight: ${flight}%0A📍 Route: ${pickup} to ${drop}%0A🚘 Vehicle: ${vehicle}%0A📅 Date: ${date}%0A💳 PayHere Ref: ${orderId}%0A%0AI have paid the $10 deposit!`;
+      
       window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${message}`, '_blank');
+      closeBookingModal();
+    };
+
+    payhere.onDismissed = function onDismissed() {
+      alert("Payment popup closed without completing deposit.");
+    };
+
+    payhere.onError = function onError(error) {
+      alert("PayHere Error: " + error);
+    };
+
+    // PayHere Gateway Call Function (Set to Sandbox Test Mode)
+    function submitDepositBooking(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('modal-name').value;
+      const drop = document.getElementById('modal-drop').value;
+      
+      var payment = {
+        "sandbox": true, // Sandbox Testing Enabled
+        "merchant_id": "1210000", // Official PayHere Sandbox Test Merchant ID
+        "return_url": "https://weligama-stays.vercel.app",
+        "cancel_url": "https://weligama-stays.vercel.app",
+        "notify_url": "https://weligama-stays.vercel.app",
+        "order_id": "TRIPO_" + Date.now(),
+        "items": "Taxi Advance Deposit - BIA to " + drop,
+        "amount": "10.00",
+        "currency": "USD",
+        "hash": "", 
+        "first_name": name,
+        "last_name": "Traveler",
+        "email": "customer@tripolanka.com",
+        "phone": "0771234567",
+        "address": "BIA Airport",
+        "city": "Katunayake",
+        "country": "Sri Lanka"
+      };
+
+      payhere.startPayment(payment);
+    }
+
+    // Policy Modal Show/Hide Functions
+    function showPolicy(type) {
+      const modal = document.getElementById('policy-modal');
+      const title = document.getElementById('policy-title');
+      const content = document.getElementById('policy-content');
+
+      if(type === 'refund') {
+        title.innerText = "Cancellation & Refund Policy";
+        content.innerHTML = `
+          <p><strong>1. Deposit Refunds:</strong> Full refund of the $10 advance deposit is granted for cancellations made at least 24 hours prior to the scheduled pickup time.</p>
+          <p><strong>2. Flight Delays:</strong> No extra charge or penalty for delayed flights. We track live flight schedules at BIA Colombo Airport.</p>
+          <p><strong>3. Processing Time:</strong> Approved refunds will be processed back to your original payment method within 3-5 business days.</p>
+        `;
+      } else if(type === 'privacy') {
+        title.innerText = "Privacy Policy";
+        content.innerHTML = `
+          <p><strong>1. Data Collection:</strong> We only collect minimal information (Name, Flight No, Phone/WhatsApp Number) required to organize your taxi transfer in Sri Lanka.</p>
+          <p><strong>2. Security:</strong> Your personal information will never be sold, rented, or shared with third parties for marketing purposes.</p>
+          <p><strong>3. Payments:</strong> All online credit/debit card transactions are processed securely via PayHere Payment Gateway. We do not store card details.</p>
+        `;
+      } else if(type === 'terms') {
+        title.innerText = "Terms & Conditions";
+        content.innerHTML = `
+          <p><strong>1. Booking Confirmation:</strong> A booking is considered confirmed once the $10 advance deposit is successfully received.</p>
+          <p><strong>2. Cash Balance:</strong> The remaining balance quoted must be paid directly to the allocated driver upon reaching your destination in USD, EUR, GBP, or LKR cash.</p>
+          <p><strong>3. Tolls & Fees:</strong> All highway toll charges, airport parking, and driver fees are fully included in the quoted price.</p>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closePolicyModal() {
+      document.getElementById('policy-modal').classList.add('hidden');
     }
   </script>
 </body>
